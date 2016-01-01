@@ -1,0 +1,11 @@
+{
+    "name": "m44rt3np44uw/laravel-is-steam-rip",
+    "autoload": {
+        "psr-4": {
+            "M44rt3np44uw\\IsSteamRIP\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.1"
+    }
+}
