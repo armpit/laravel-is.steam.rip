@@ -1,13 +1,4 @@
-<?php
-
-/**
- * Created by PhpStorm.
- * User: maartenpaauw
- * Date: 01-01-16
- * Time: 20:11
- */
-
-namespace M44rt3np44uw\IsSteamRIP\Providers;
+<?php namespace M44rt3np44uw\IsSteamRIP\Providers;
 
 use GuzzleHttp\Client;
 use Illuminate\Foundation\AliasLoader;
@@ -21,12 +12,14 @@ use M44rt3np44uw\IsSteamRIP\IsSteamRIP;
 class IsSteamRIPServiceProvider extends ServiceProvider
 {
     /**
+     * Defer
+     *
      * @var bool
      */
     protected $defer = false;
 
     /**
-     *
+     * Register
      */
     public function register()
     {
@@ -36,7 +29,7 @@ class IsSteamRIPServiceProvider extends ServiceProvider
     }
 
     /**
-     *
+     * Register bindings.
      */
     private function registerBindings()
     {
@@ -47,7 +40,7 @@ class IsSteamRIPServiceProvider extends ServiceProvider
     }
 
     /**
-     *
+     * Register IsSteamRIP
      */
     private function registerIsSteamRIP()
     {
@@ -58,7 +51,7 @@ class IsSteamRIPServiceProvider extends ServiceProvider
     }
 
     /**
-     *
+     * Register alias
      */
     private function aliasIsSteamRIP()
     {
@@ -72,6 +65,8 @@ class IsSteamRIPServiceProvider extends ServiceProvider
     }
 
     /**
+     * Check if an alias exists.
+     *
      * @param $alias
      * @return bool
      */
@@ -81,6 +76,8 @@ class IsSteamRIPServiceProvider extends ServiceProvider
     }
 
     /**
+     * Provides array.
+     *
      * @return array
      */
     public function provides()

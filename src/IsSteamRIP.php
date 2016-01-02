@@ -1,6 +1,4 @@
-<?php
-
-namespace M44rt3np44uw\IsSteamRIP;
+<?php namespace M44rt3np44uw\IsSteamRIP;
 
 use GuzzleHttp\Client;
 
@@ -11,14 +9,14 @@ use GuzzleHttp\Client;
 class IsSteamRIP
 {
     /**
-     *
+     * The API URL.
      */
     const API_URL = "http://is.steam.rip/api/v1/?request=";
 
     /**
-     *
+     * The different outputs.
      */
-    const OUTPUTS = [
+    private $outputs = [
         "steamStatus",
         "getAllRegionData",
         "getRegions",
@@ -28,11 +26,15 @@ class IsSteamRIP
     ];
 
     /**
+     * Guzzle Client.
+     *
      * @var Client
      */
     private $client;
 
     /**
+     * Is Steam RIP constructor.
+     *
      * IsSteamRIP constructor.
      * @param Client $client
      */
@@ -42,17 +44,27 @@ class IsSteamRIP
     }
 
     /**
+     * Call function.
+     *
      * @param $output
+     * @param $arguments
+     * @return \Psr\Http\Message\StreamInterface
      */
-    public function __call($output)
+    public function __call($output, $arguments)
     {
-        if(in_array($output, IsSteamRIP::OUTPUTS))
+        if(in_array($output, $this->outputs))
         {
-            $this->_apiCall($output);
+            return $this->_apiCall($output);
+        }
+
+        else {
+            return false;
         }
     }
 
     /**
+     * Make the request to the is.steam.rip API.
+     *
      * @param $output
      * @return \Psr\Http\Message\StreamInterface
      */
